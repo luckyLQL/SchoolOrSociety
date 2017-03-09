@@ -131,8 +131,6 @@ def process(request):
     input_dic['nineteen'] = request.POST['nineteen']
     raw_arr.append(int(input_dic['nineteen']))
 
-    print raw_arr
-
     if len(raw_arr) == 37:
         model = model1()
         model_index = model.getResult(raw_arr)

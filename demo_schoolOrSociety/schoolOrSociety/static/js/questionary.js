@@ -32,8 +32,8 @@ addEvent(document.getElementById('sortFactors'),'click',function(event){
 				sortFactorsArray.removeByValue(tar.name);//选择后又删除的项也从数组中移除
 				getSibling(tar).innerHTML='';
 			}else{
-			}
-		}
+			}		
+		}				
 	}else{
 	}
 	//计数
@@ -41,7 +41,7 @@ addEvent(document.getElementById('sortFactors'),'click',function(event){
 	//实时添加序号
 	for(var i=0;i<sortFactorsInput.length;i++){
 		var loca=sortFactorsArray.indexOf(sortFactorsInput[i].name);
-
+		
 		if(loca!=-1){
 			var orderSpan=getSibling(sortFactorsInput[i]);
 			var nowNum=loca+1;
@@ -49,8 +49,8 @@ addEvent(document.getElementById('sortFactors'),'click',function(event){
 			sortFactorsInput[i].value=nowNum;
 		}
 	}
-
-
+	
+		
 });
 
 //character计数器
@@ -81,7 +81,7 @@ addEvent(document.getElementById('character'),'click',function(event){
 		}else{
 		}
 	}
-
+	
 	document.getElementById('totalFactor2').innerHTML=count;
 });
 
@@ -105,6 +105,22 @@ addEvent(document.getElementById('btn1'),'click',function(event){
 		event.preventDefault();
 		return false;
 	}
+	setTimeout(function(){
+		for(var i=0;i<getElementsByClassName('error').length;i++){
+			if(getElementsByClassName('error')[i].style.display!='none'){
+				var scrollHei=getElementsByClassName('error')[i].offsetTop;
+				console.log(scrollHei);
+				window.scrollTo(100,scrollHei);
+				break;
+			}
+		}
+			
+
+			/*
+			
+			*/
+	},300)
+	
 });
 
 //进度条以及处理题目之间的关联关系
@@ -164,11 +180,11 @@ addEvent(document.body,'click',function(event){
 		var percent=compeleCount/17*100;
 		var percentFixed=percent.toFixed(2);
 	}
-
+	
 	document.getElementById('completeNumber').innerHTML=percentFixed+'%';
 	document.getElementById('inner').style.height=percentFixed/100*200+'px';
 });
-
+	
 
 //从数组删除指定值元素
 Array.prototype.removeByValue = function(val) {
